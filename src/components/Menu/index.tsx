@@ -13,51 +13,51 @@ const MenuComponent: React.FC = () => {
     <Popover
       minWidth='100%'
       position={'bottom'}
-      content={
+      content={({ close }) => (
         <Menu>
-          <Link to='/registro'>
+          <Link to='/registro' onClick={close}>
             <Menu.Item className='menuItems'>
               <FiUserCheck className='menuIcons' />
-              <span className='menuItem'>REGISTRATE</span>{' '}
+              <span className='menuItem'>REGISTRATE</span>
             </Menu.Item>
           </Link>
           <Menu.Divider />
-          <Link to='/informacion'>
+          <Link to='/informacion' onClick={close}>
             <Menu.Item className='menuItems'>
               <FaInfoCircle className='menuIcons' />
               <span className='menuItem'>INFORMACIÓN</span>
             </Menu.Item>
           </Link>
           <Menu.Divider />
-          <Link to='/expositores'>
+          <Link to='/expositores' onClick={close}>
             <Menu.Item className='menuItems'>
               <FiUsers className='menuIcons' />
               <span className='menuItem'>EXPOSITORES</span>
             </Menu.Item>
           </Link>
           <Menu.Divider />
-          <Link to='/actividades'>
+          <Link to='/actividades' onClick={close}>
             <Menu.Item className='menuItems'>
               <FiList className='menuIcons' />
               <span className='menuItem'>ACTIVIDADES</span>
             </Menu.Item>
           </Link>
           <Menu.Divider />
-          <Link to='/noticias'>
+          <Link to='/noticias' onClick={close}>
             <Menu.Item className='menuItems'>
               <GiNewspaper className='menuIcons' />
               <span className='menuItem'>NOTICIAS</span>
             </Menu.Item>
           </Link>
           <Menu.Divider />
-          <Link to='/contacto'>
+          <Link to='/contacto' onClick={close}>
             <Menu.Item className='menuItems'>
               <AiFillQuestionCircle className='menuIcons' />
               <span className='menuItem'>CONTACTO</span>
             </Menu.Item>
           </Link>
         </Menu>
-      }
+      )}
     >
       <Button className='ButtonMenu' height={64}>
         MENU <MdFingerprint className='iconButton'></MdFingerprint>
