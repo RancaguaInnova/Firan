@@ -1,0 +1,22 @@
+.ExpositorCenter {
+  color: #00a1cf;
+  text-align: center;
+  font-weight: bold;
+  padding: 5%;
+  font-size: 0.8rem;
+}
+.ContentExpositor {
+  text-align: justify;
+  padding: 5%;
+  font-size: 0.8rem;
+}
+.TitleExpositor {
+  font-size: 1.2rem;
+  text-align: center;
+  color: #006787;
+}
+.queesfiranHeader a {
+  background-color: #01232b !important;
+  color: white;
+  text-align: center;
+}

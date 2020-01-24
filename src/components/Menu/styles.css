@@ -1,6 +1,6 @@
 .ButtonMenu {
   width: 100%;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   text-align: center;
   font-size: xx-large;
