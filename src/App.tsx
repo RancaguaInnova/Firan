@@ -4,7 +4,11 @@ import Header from 'components/Header'
 import Loading from 'components/Loading'
 import * as Sentry from '@sentry/browser'
 import Menu from 'components/Menu'
-
+import 'bootstrap/dist/css/bootstrap.min.css'
+import './App.css'
+import 'primereact/resources/themes/nova-light/theme.css'
+import 'primereact/resources/primereact.min.css'
+import 'primeicons/primeicons.css'
 const Home = React.lazy(() => import('pages/Home'))
 const Register = React.lazy(() => import('pages/Register'))
 const News = React.lazy(() => import('pages/News'))
@@ -27,7 +31,7 @@ const App: React.FC = () => {
       <Header />
       <Suspense fallback={<Loading />}>
         <Router>
-          <RouterPage path='/' pageComponent={<Home />} default />
+          <RouterPage path='/' pageComponent={<Expositor />} default />
           <RouterPage path='/registro' pageComponent={<Register />} />
           <RouterPage path='/informacion' pageComponent={<Information />} />
           <RouterPage path='/expositores' pageComponent={<Expositor />} />
@@ -36,7 +40,8 @@ const App: React.FC = () => {
           <RouterPage path='/contacto' pageComponent={<Contact />} />
         </Router>
       </Suspense>
-      <Menu />
+      {/*       <Menu />
+       */}{' '}
     </div>
   )
 }

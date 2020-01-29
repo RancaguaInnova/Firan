@@ -2,10 +2,14 @@ import React from 'react'
 import { Popover, Button, Menu } from 'evergreen-ui'
 import './styles.css'
 import { MdFingerprint } from 'react-icons/md'
-import { FiUsers, FiUserCheck, FiList } from 'react-icons/fi'
-import { GiNewspaper } from 'react-icons/gi'
-import { AiFillQuestionCircle } from 'react-icons/ai'
-import { FaInfoCircle } from 'react-icons/fa'
+import {
+  HowToRegRounded,
+  InfoRounded,
+  PeopleRounded,
+  FormatListBulletedRounded,
+  LibraryBooksRounded,
+  ContactSupportRounded
+} from '@material-ui/icons'
 import { Link } from '@reach/router'
 
 const MenuComponent: React.FC = () => {
@@ -17,42 +21,42 @@ const MenuComponent: React.FC = () => {
         <Menu>
           <Link to='/registro' onClick={close}>
             <Menu.Item className='menuItems'>
-              <FiUserCheck className='menuIcons' />
+              <HowToRegRounded className='menuIcons' width={48} />
               <span className='menuItem'>REGISTRATE</span>
             </Menu.Item>
           </Link>
           <Menu.Divider />
           <Link to='/informacion' onClick={close}>
             <Menu.Item className='menuItems'>
-              <FaInfoCircle className='menuIcons' />
+              <InfoRounded className='menuIcons' />
               <span className='menuItem'>INFORMACIÓN</span>
             </Menu.Item>
           </Link>
           <Menu.Divider />
           <Link to='/expositores' onClick={close}>
             <Menu.Item className='menuItems'>
-              <FiUsers className='menuIcons' />
+              <PeopleRounded className='menuIcons' />
               <span className='menuItem'>EXPOSITORES</span>
             </Menu.Item>
           </Link>
           <Menu.Divider />
           <Link to='/actividades' onClick={close}>
             <Menu.Item className='menuItems'>
-              <FiList className='menuIcons' />
+              <FormatListBulletedRounded className='menuIcons' />
               <span className='menuItem'>ACTIVIDADES</span>
             </Menu.Item>
           </Link>
           <Menu.Divider />
           <Link to='/noticias' onClick={close}>
             <Menu.Item className='menuItems'>
-              <GiNewspaper className='menuIcons' />
+              <LibraryBooksRounded className='menuIcons' />
               <span className='menuItem'>NOTICIAS</span>
             </Menu.Item>
           </Link>
           <Menu.Divider />
           <Link to='/contacto' onClick={close}>
             <Menu.Item className='menuItems'>
-              <AiFillQuestionCircle className='menuIcons' />
+              <ContactSupportRounded className='menuIcons' />
               <span className='menuItem'>CONTACTO</span>
             </Menu.Item>
           </Link>

@@ -1,16 +1,14 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
-    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: proxima-nova, sans-serif;
+  font-style: normal;
+  font-weight: 400;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  font-family: proxima-nova, sans-serif;
 }
-.content {
-}
+
 .p-accordion .p-accordion-header a {
   padding: 0.571em 1em;
   border: 1px solid #c8c8c8;
@@ -21,6 +19,7 @@ code {
   -webkit-transition: background-color 0.2s, box-shadow 0.2s;
   transition: background-color 0.2s, box-shadow 0.2s;
 }
+
 .p-accordion .p-accordion-header:not(.p-disabled).p-highlight a {
   background-color: #004d65 !important;
   border: 1px solid #c8c8c8;
@@ -28,6 +27,7 @@ code {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
+
 .css-69cngj,
 [data-css-69cngj] {
   background-color: #004d65 !important;

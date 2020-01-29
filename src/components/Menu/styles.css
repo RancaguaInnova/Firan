@@ -49,7 +49,9 @@
 .menuIcons {
   color: white;
   background-color: #006787;
-  font-size: 32px;
+  font-size: 1.5rem;
+  width: 2em !important;
+  height: 2em !important;
 }
 .menuItems {
   background-color: #006787;

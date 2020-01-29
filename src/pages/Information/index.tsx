@@ -1,58 +1,67 @@
 import React from 'react'
-import { Menu, Button } from 'evergreen-ui'
 import { Link } from '@reach/router'
-import { FaInfoCircle } from 'react-icons/fa'
 import { Accordion, AccordionTab } from 'primereact/accordion'
-import 'primereact/resources/themes/nova-light/theme.css'
-import 'primereact/resources/primereact.min.css'
-import 'primeicons/primeicons.css'
+import { Row, Container, Col } from 'react-bootstrap'
+import { DefaultButton, IIconProps } from 'office-ui-fabric-react'
+
 import './styles.css'
+import { InfoRounded } from '@material-ui/icons'
 
 const Events: React.FC = () => {
   return (
     <div className='content'>
-      <Menu>
-        <Link to='/'>
-          <Menu.Item className='menuItems'>
-            <FaInfoCircle className='menuIcons' />
-            <span className='menuItem'>INFORMACIÓN</span>
-          </Menu.Item>
-        </Link>
-      </Menu>
+      <Link to='/'>
+        <Row className='justify-content-md-center Menuheader'>
+          <InfoRounded className='menuIcons' />
+          <div className='box'>INFORMACIÓN</div>
+        </Row>
+      </Link>
       <Accordion>
         <AccordionTab header='¿Que es FIRAN?' contentClassName='queesfiranHeader'>
-          <h4 className='TitleInformation'>
-            ¿Que es <b>firan?</b>
-          </h4>
-          <div className='ContentInformation'>
-            Feria Internacional Rancagua 20220, tiene por objetivo mostrar todas las oportunidades y
-            capacidades que ofrece la ciudad de Rancagua a sus habitantes y al mundo. Durante dos
-            días de feria , se realizarán diversas actividades de tipo cultural y
-            empresarial,charlas,exposiciones, intervenciones artísticas y más.
-          </div>
-          <div className='FooterInformation'>Te invitamos a ser protagonistas</div>
-          <div className='FooterInformation2'>de FIRAN 2020</div>
+          <Container>
+            <Row>
+              <Col className='justify-content-md-center text-center'>
+                <h4 className='TitleInformation'>
+                  ¿Que es <b>firan?</b>
+                </h4>
+              </Col>
+            </Row>
+            <Row>
+              <Col className='ContentInformation'>
+                Feria Internacional Rancagua 20220, tiene por objetivo mostrar todas las
+                oportunidades y capacidades que ofrece la ciudad de Rancagua a sus habitantes y al
+                mundo. Durante dos días de feria , se realizarán diversas actividades de tipo
+                cultural y empresarial,charlas,exposiciones, intervenciones artísticas y más.
+              </Col>
+            </Row>
+
+            <Row>
+              <Col className='FooterInformation'>Te invitamos a ser protagonistas</Col>
+            </Row>
+            <Row>
+              <Col className='FooterInformation2'>de FIRAN 2020</Col>
+            </Row>
+          </Container>
         </AccordionTab>
         <AccordionTab header='Ubicación' headerClassName='ubicacionHeader'>
-          <h4 className='TitleInformation'>Ubicación</h4>
-          <div className='ContentInformation'>
-            <ul>
-              <li className='displayDireccion'>Medialuna Monumental de Rancagua</li>
-              <li className='displayDireccion'>
-                <div className='direccion'>
-                  Av .España con German Ibara, Rancagua Región del Libertador Gral. Bernardo
-                  O'higgins
-                </div>
-                <div className='direccion'>
-                  <Button marginRight={16} className='buttonOpenMaps'>
-                    Ver rutas en google maps
-                  </Button>
-                </div>
-              </li>
-            </ul>
-          </div>
+          <Container>
+            <Row>
+              <Col className='justify-content-md-center text-center'>
+                <h4 className='TitleInformation'>Ubicación</h4>
+              </Col>
+            </Row>
+            <Row>
+              <Col className='ContentInformation'>
+                Av .España con German Ibara, Rancagua Región del Libertador Gral. Bernardo O'higgins
+              </Col>
+              <Col>
+                <DefaultButton className='buttonOpenMaps'>Ver rutas en google maps</DefaultButton>
+              </Col>
+            </Row>
+          </Container>
         </AccordionTab>
         <AccordionTab header='Fechas y Horarios' headerClassName='fechasYhorariosHeader'>
+          <Container></Container>
           <h4 className='TitleInformation'>Fechas y Horarios</h4>
           <div className='ContentInformation'>
             <ul className='gridDisplay'>

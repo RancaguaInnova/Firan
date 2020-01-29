@@ -1,23 +1,19 @@
 import React from 'react'
 import './styles.css'
-import { Menu } from 'evergreen-ui'
 import { Link } from '@reach/router'
-import { FiUsers } from 'react-icons/fi'
 import { Accordion, AccordionTab } from 'primereact/accordion'
-import 'primereact/resources/themes/nova-light/theme.css'
-import 'primereact/resources/primereact.min.css'
-import 'primeicons/primeicons.css'
+import { Row } from 'react-bootstrap'
+import { GroupRounded } from '@material-ui/icons'
+
 const Expositor: React.FC = () => {
   return (
     <div className='content'>
-      <Menu>
-        <Link to='/'>
-          <Menu.Item className='menuItems'>
-            <FiUsers className='menuIcons' />
-            <span className='menuItem'>EXPOSITORES</span>
-          </Menu.Item>
-        </Link>
-      </Menu>
+      {/*   <Link to='/'>
+        <Row className='justify-content-md-center Menuheader'>
+          <GroupRounded className='menuIcons'></GroupRounded>
+          <div className='box'>EXPOSITORES</div>
+        </Row>
+      </Link> */}
       <Accordion>
         <AccordionTab header='Por qué Exponer?' contentClassName='queesfiranHeader'>
           <h4 className='TitleExpositor'>Por qué Exponer?</h4>
@@ -40,18 +36,18 @@ const Expositor: React.FC = () => {
           <h4 className='TitleExpositor'>Valores Stands</h4>
           <div className='ContentExpositor'></div>
         </AccordionTab>
-        <AccordionTab header='Valores Stands' contentClassName='queesfiranHeader'>
+        <AccordionTab header='Plano Ferial' contentClassName='queesfiranHeader'>
           <h4 className='TitleExpositor'>Plano Ferial</h4>
           <div className='ContentExpositor'></div>
         </AccordionTab>
-        <AccordionTab header='Valores Stands' contentClassName='queesfiranHeader'>
+        <AccordionTab header='Brochure' contentClassName='queesfiranHeader'>
           <h4 className='TitleExpositor'>Brochure</h4>
           <div className='ContentExpositor'></div>
         </AccordionTab>
-        <AccordionTab header='Valores Stands' contentClassName='queesfiranHeader'>
+        {/*         <AccordionTab header='Manual del Expositor' contentClassName='queesfiranHeader'>
           <h4 className='TitleExpositor'>Manual del Expositor</h4>
           <div className='ContentExpositor'></div>
-        </AccordionTab>
+        </AccordionTab> */}
       </Accordion>
     </div>
   )
