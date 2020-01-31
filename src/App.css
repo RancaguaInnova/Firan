@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  font-family: proxima-nova, sans-serif;
+  font-style: normal;
+  font-weight: 400;
 }
 
 .App-logo {
@@ -19,4 +22,21 @@
 
 .App-link {
   color: #09d3ac;
+}
+
+.Menuheader {
+  background-color: #006787;
+  color: white;
+  height: 70px;
+  font-size: 2em;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.sinPadding {
+  padding-right: 0px;
+  padding-left: 0px;
 }

@@ -1,0 +1,72 @@
+.buttonContact {
+  width: calc(100% - 20px);
+  margin-left: 10px;
+  height: 50px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  max-width: 370px;
+
+  color: #00a1cf;
+}
+.iconColor {
+  color: #d33f93 !important;
+}
+.Title {
+  color: #006787;
+  font-size: 1.2rem;
+  text-align: center;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.Content {
+  margin: 0 auto;
+  text-align: center;
+}
+.TitleMenu {
+ 
+  text-align: center;
+
+}
+.MenuItemsTitle {
+  padding-left: 0px;
+}
+.rowflex {
+  display: flex;
+}
+.ColumnIcon {
+  width: 40%;
+}
+.ColumnText {
+  width: 60%;
+  display: grid;
+}
+.ItemContact {
+  display: grid;
+  color: #006787;
+  margin-top: 10px;
+}
+.ItemContactTitle {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+.ItemContactContent {
+  color: #00a1cf;
+  font-weight: 600;
+  font-size: 0.69rem;
+}
+.IconGroup {
+  width: 100px;
+  height: 100px;
+  background: #d33f93;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin: 50px auto;
+}
+.GrupIcon {
+  color: white;
+  width: 3.5em !important;
+  height: 3.5em !important;
+}

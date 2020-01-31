@@ -1,22 +1,69 @@
-.queesfiranHeader {
-  background-color: #01232b;
+.queesfiranHeader a {
+  background-color: #01232b !important;
+  color: white;
 }
-.ubicacionHeader {
-  background-color: #003444;
+.ubicacionHeader a {
+  background-color: #003444 !important;
+  color: white;
 }
-.fechasYhorariosHeader {
-  background-color: #004d65;
+.fechasYhorariosHeader a {
+  background-color: #004d65 !important;
+  color: white;
 }
-.entradasYvaloresHeader {
-  background-color: #006787;
+.entradasYvaloresHeader a {
+  background-color: #006787 !important;
+  color: white;
 }
-.planoFerialHeader {
-  background-color: #33859f;
+.planoFerialHeader a {
+  background-color: #33859f !important;
+  color: white;
 }
-.descargaVolanteFerial {
-  background-color: #66a4b7;
+.descargaVolanteFerial a {
+  background-color: #66a4b7 !important;
+  color: white;
 }
 
 p-accordion-tab {
   background-color: #01232b;
+}
+.TitleInformation {
+  color: #004d65;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: large;
+}
+.ContentInformation {
+  color: #888888;
+  font-size: 1.1em;
+  text-align: justify;
+}
+.FooterInformation {
+  margin-top: 5px;
+
+  color: #888888;
+  font-size: 0.9em;
+  font-style: italic;
+
+  text-align: center;
+}
+.FooterInformation2 {
+  margin-top: 5px;
+  color: #888888;
+  font-size: 0.9rem;
+  text-align: center;
+  font-style: italic;
+}
+
+.displayDireccion {
+  display: inline-flex;
+  list-style: square;
+  margin-bottom: 10px;
+  font-size: 12.8px;
+}
+.direccion {
+  width: 50%;
+  padding-right: 20px;
+}
+.gridDisplay {
+  display: grid;
 }

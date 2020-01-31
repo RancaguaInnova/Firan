@@ -4,6 +4,9 @@ import Header from 'components/Header'
 import Loading from 'components/Loading'
 import * as Sentry from '@sentry/browser'
 import Menu from 'components/Menu'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import './App.css'
+import 'antd/dist/antd.css'
 
 const Home = React.lazy(() => import('pages/Home'))
 const Register = React.lazy(() => import('pages/Register'))
@@ -24,7 +27,6 @@ if (process.env.NODE_ENV === 'production') {
 const App: React.FC = () => {
   return (
     <div className='App'>
-      <Header />
       <Suspense fallback={<Loading />}>
         <Router>
           <RouterPage path='/' pageComponent={<Home />} default />
@@ -36,7 +38,8 @@ const App: React.FC = () => {
           <RouterPage path='/contacto' pageComponent={<Contact />} />
         </Router>
       </Suspense>
-      <Menu />
+      {/*       <Menu />
+       */}{' '}
     </div>
   )
 }
