@@ -1,8 +1,10 @@
 import React from 'react'
 import './styles.css'
+import { Spin } from 'antd'
 
 const Header: React.FC = () => {
-	return <div className='Header'>Hola soy el Header</div>
+	return <Spin size="large" />
+
 }
 
 export default Header

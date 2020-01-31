@@ -5,18 +5,85 @@
   padding: 5%;
   font-size: 0.8rem;
 }
+
 .ContentExpositor {
   text-align: justify;
   padding: 5%;
   font-size: 0.8rem;
 }
+
 .TitleExpositor {
   font-size: 1.2rem;
   text-align: center;
   color: #006787;
 }
+
 .queesfiranHeader a {
   background-color: #01232b !important;
   color: white;
   text-align: center;
 }
+
+.ant-collapse {
+  background-color: #006787;
+  color: white;
+}
+
+.ant-collapse > .ant-collapse-item > .ant-collapse-header .ant-collapse-extra {
+  float: left;
+}
+
+.container {
+  margin-top: 10px;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.ant-collapse > .ant-collapse-item > .ant-collapse-header {
+  color: #fff;
+  font-size: 1em;
+  font-weight: bold;
+  line-height: initial;
+}
+
+.panel1 {
+  background-color: #011114;
+}
+
+.panel2 {
+  background-color: #01232b;
+}
+
+.panel3 {
+  background-color: #003444;
+}
+
+.panel4 {
+  background-color: #004d65;
+}
+
+.panel5 {
+  background-color: #006787;
+}
+
+.panel6 {
+  background-color: #33859f;
+}
+
+.panel7 {
+  background-color: #66a4b7;
+}
+
+.celeste {
+  background-color: #009fcb;
+  border-radius: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.celesteTitle {
+  color: #009fcb;
+  text-transform: uppercase;
+  font-size: xx-small;
+}
+/*# sourceMappingURL=styles.css.map */
