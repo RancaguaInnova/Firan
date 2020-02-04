@@ -1,6 +1,6 @@
 import React from 'react'
 import './styles.sass'
-import { Row } from 'antd'
+import { Divider, Row } from 'antd'
 import { Link } from '@reach/router'
 
 const Home: React.FC = () => {
@@ -12,16 +12,18 @@ const Home: React.FC = () => {
       <Row>
         <img alt='Home Firan 2020' src='/resources/img/expositor1.svg'></img>
       </Row>
-      <Row className='DisplayCircle'>
+      <Row className='displayCircle'>
         <Link to='/expositores'>
-          <div className='Circle'>
-            <span>Expositores</span>
+          <div className='animatedCircle'>
+            <span className='label'>EXPOSITORES</span>
+            <span className='miniLabel'>AQUÍ</span>
           </div>
+          <div className='animatedBackCircle' />
         </Link>
-        <div className='CircleExtern'> </div>
+        <Divider className='divider' />
       </Row>
 
-      <Row className='DisplayColaboradores'>
+      <Row className='displayColaboradores'>
         <img alt='Home Firan 2020' src='/resources/img/expositor3.svg'></img>
       </Row>
     </div>
