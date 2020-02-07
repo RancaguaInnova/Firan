@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from '@reach/router'
 import { Accordion, AccordionTab } from 'primereact/accordion'
 import { Row, Container, Col } from 'react-bootstrap'
-import { DefaultButton, IIconProps } from 'office-ui-fabric-react'
+import { DefaultButton } from 'office-ui-fabric-react'
 
 import './styles.css'
 import { InfoRounded } from '@material-ui/icons'

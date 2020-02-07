@@ -6,7 +6,7 @@ import {
   StoreRounded,
   CloudDownloadRounded
 } from '@material-ui/icons'
-import { Col, Collapse, Divider, Icon, Modal, Row, Typography } from 'antd'
+import { Col, Collapse, Icon, Modal, Row, Typography } from 'antd'
 import Expositores from './Lista'
 import Stands from './stands'
 
@@ -16,7 +16,11 @@ const Header = lazy(() => import('../../components/Header'))
 
 const Expositor: React.FC = () => {
   const { Panel } = Collapse
-  const [visible, setVisible] = useState(false)
+  const [modal, setModal] = useState({
+    open: false,
+    asset: '',
+    title: ''
+  })
 
   const customExpandIcon = (props: any) => {
     if (props.isActive) {
@@ -26,19 +30,15 @@ const Expositor: React.FC = () => {
     }
   }
 
-  const showModal = () => {
-    setVisible(true)
-  }
-
   const handleClose = () => {
-    setVisible(false)
+    setModal({ open: false, asset: '', title: '' })
   }
 
   const handleDownload = () => {
     var tempLink = document.createElement('a')
     tempLink.style.display = 'none'
-    tempLink.href = '/resources/img/infografia.jpg'
-    tempLink.setAttribute('download', 'infografia firan 2019.jpg')
+    tempLink.href = `/resources/img/${modal.asset}.jpg`
+    tempLink.setAttribute('download', `${modal.asset}.jpg`)
 
     if (typeof tempLink.download === 'undefined') {
       tempLink.setAttribute('target', '_blank')
@@ -50,9 +50,9 @@ const Expositor: React.FC = () => {
     // Fixes "webkit blob resource error 1"
     setTimeout(function() {
       document.body.removeChild(tempLink)
-      window.URL.revokeObjectURL('/resources/img/infografia.jpg')
+      window.URL.revokeObjectURL(`/resources/img/${modal.asset}.jpg`)
     }, 0)
-    setVisible(false)
+    handleClose()
   }
 
   return (
@@ -87,23 +87,15 @@ const Expositor: React.FC = () => {
               src='/resources/img/infografia.jpg'
               width='50%'
               alt='Infografia firan 2019'
-              style={{ margin: '1rem 0' }}
-              onClick={showModal}
+              style={{ margin: '1rem 0', boxShadow: '2px 4px 3px gray' }}
+              onClick={() =>
+                setModal({
+                  open: true,
+                  asset: 'infografia',
+                  title: 'Estudio de Impacto Firan 2019'
+                })
+              }
             />
-            <Modal
-              title='Estudio de Impacto Firan 2019'
-              visible={visible}
-              onOk={handleDownload}
-              onCancel={handleClose}
-              okText='Descargar'
-              cancelText='Cerrar'
-            >
-              <img
-                src='/resources/img/infografia.jpg'
-                alt='Infografia firan 2019'
-                width='100%'
-              ></img>
-            </Modal>
           </Panel>
           <Panel
             showArrow
@@ -132,7 +124,22 @@ const Expositor: React.FC = () => {
             extra={<CloudDownloadRounded className='iconExtra' />}
             className='panel4'
           >
-            <div className='ContentExpositor'></div>
+            <Row>
+              <Col xs={24}>
+                <img
+                  src='/resources/img/plano-firan.jpg'
+                  alt='Plano firan 2020'
+                  style={{ width: '100%', margin: '1rem 0', boxShadow: '2px 4px 3px gray' }}
+                  onClick={() =>
+                    setModal({
+                      open: true,
+                      asset: 'plano-firan',
+                      title: 'Plano Firan 2020'
+                    })
+                  }
+                />
+              </Col>
+            </Row>
           </Panel>
           <Panel
             showArrow
@@ -188,6 +195,16 @@ const Expositor: React.FC = () => {
           </Panel>
         </Collapse>
       </div>
+      <Modal
+        title={modal.title}
+        visible={modal.open}
+        onOk={handleDownload}
+        onCancel={handleClose}
+        okText='Descargar'
+        cancelText='Cerrar'
+      >
+        <img src={`/resources/img/${modal.asset}.jpg`} alt={`${modal.asset}`} width='100%'></img>
+      </Modal>
     </div>
   )
 }
