@@ -8,7 +8,7 @@ import {
 } from '@material-ui/icons'
 import { Col, Collapse, Icon, Modal, Row, Typography } from 'antd'
 import Expositores from './Lista'
-import Stands from './stands'
+import Stands from './Stands'
 
 const { Text, Title } = Typography
 
@@ -115,7 +115,7 @@ const Expositor: React.FC = () => {
             extra={<StoreRounded className='iconExtra' />}
             className='panel3'
           >
-            <Stands></Stands>
+            <Stands />
           </Panel>
           <Panel
             showArrow
