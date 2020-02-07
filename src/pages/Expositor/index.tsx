@@ -6,9 +6,10 @@ import {
   StoreRounded,
   CloudDownloadRounded
 } from '@material-ui/icons'
-import { Col, Collapse, Divider, Icon, Modal, Row, Typography } from 'antd'
+import { Col, Collapse, Icon, Row, Typography } from 'antd'
 import Expositores from './Lista'
 import Stands from './stands'
+import DownloadModal from 'components/DownloadModal'
 
 const { Text, Title } = Typography
 
@@ -16,7 +17,7 @@ const Header = lazy(() => import('../../components/Header'))
 
 const Expositor: React.FC = () => {
   const { Panel } = Collapse
-  const [visible, setVisible] = useState(false)
+  const [modal, setModal] = useState({ open: false, asset: '' })
 
   const customExpandIcon = (props: any) => {
     if (props.isActive) {
@@ -24,35 +25,6 @@ const Expositor: React.FC = () => {
     } else {
       return <Icon type='plus' />
     }
-  }
-
-  const showModal = () => {
-    setVisible(true)
-  }
-
-  const handleClose = () => {
-    setVisible(false)
-  }
-
-  const handleDownload = () => {
-    var tempLink = document.createElement('a')
-    tempLink.style.display = 'none'
-    tempLink.href = '/resources/img/infografia.jpg'
-    tempLink.setAttribute('download', 'infografia firan 2019.jpg')
-
-    if (typeof tempLink.download === 'undefined') {
-      tempLink.setAttribute('target', '_blank')
-    }
-
-    document.body.appendChild(tempLink)
-    tempLink.click()
-
-    // Fixes "webkit blob resource error 1"
-    setTimeout(function() {
-      document.body.removeChild(tempLink)
-      window.URL.revokeObjectURL('/resources/img/infografia.jpg')
-    }, 0)
-    setVisible(false)
   }
 
   return (
@@ -84,26 +56,12 @@ const Expositor: React.FC = () => {
               "Generar nuevas oportunidades de negocios y vínculos comerciales"
             </div>
             <img
-              src='/resources/img/infografia.jpg'
+              src='/resources/img/infografia-firan-2019.jpg'
               width='50%'
               alt='Infografia firan 2019'
               style={{ margin: '1rem 0' }}
-              onClick={showModal}
+              onClick={() => setModal({ open: true, asset: 'infografia-firan-2019.jpg' })}
             />
-            <Modal
-              title='Estudio de Impacto Firan 2019'
-              visible={visible}
-              onOk={handleDownload}
-              onCancel={handleClose}
-              okText='Descargar'
-              cancelText='Cerrar'
-            >
-              <img
-                src='/resources/img/infografia.jpg'
-                alt='Infografia firan 2019'
-                width='100%'
-              ></img>
-            </Modal>
           </Panel>
           <Panel
             showArrow
@@ -132,7 +90,15 @@ const Expositor: React.FC = () => {
             extra={<CloudDownloadRounded className='iconExtra' />}
             className='panel4'
           >
-            <div className='ContentExpositor'></div>
+            <Row>
+              <Col xs={24}>
+                <img
+                  style={{ maxWidth: '100%' }}
+                  src='/resources/img/plano-feria.jpg'
+                  alt='Plano Firan 2020'
+                />
+              </Col>
+            </Row>
           </Panel>
           <Panel
             showArrow

@@ -1,4 +1,4 @@
-import React, { lazy } from 'react'
+import React from 'react'
 import { Row } from 'antd'
 import { ReactComponent as Agroindustria } from './icons/agroindustria.svg'
 import { ReactComponent as Artesania } from './icons/artesania.svg'
