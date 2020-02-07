@@ -142,61 +142,47 @@ const Expositor: React.FC = () => {
             className='panel5'
           >
             <Row type='flex' justify='space-around' align='middle' className='paddedRow'>
-              <Col xs={14}>
+              <Col xs={24} className='docTypeTitle'>
+                <Title level={4}>BROCHURE</Title>
+              </Col>
+              <Col xs={24}>
                 <img
-                  style={{ maxWidth: '90%', marginLeft: '-2.5rem' }}
+                  style={{ maxWidth: '100%' }}
                   src='/resources/img/brochure.png'
                   alt='Portada Brochure Firan'
                 />
               </Col>
-              <Col xs={10}>
-                <Row
-                  type='flex'
-                  justify='space-around'
-                  align='middle'
-                  style={{ marginTop: '-1rem' }}
-                >
-                  <Col xs={24} className='docTypeTitle'>
-                    <Text strong>BROCHURE</Text>
-                  </Col>
-                </Row>
+              <Col xs={24} style={{ marginTop: '1rem' }}>
                 <Row type='flex' justify='space-around' align='middle' className='downloadButton'>
-                  <Col xs={24} className='downloadTitle'>
-                    <Text strong>DESCARGA BROCHURE</Text>
-                  </Col>
-                  <Col xs={24} className='downloadIcon'>
+                  <Col xs={8} className='downloadIcon'>
                     <Icon type='cloud-download' theme='outlined' />
+                  </Col>
+                  <Col xs={16} className='buttonLabel'>
+                    <Text strong>DESCARGA BROCHURE</Text>
                   </Col>
                 </Row>
               </Col>
             </Row>
             <Row type='flex' justify='space-around' align='middle' className='paddedRow'>
-              <Col xs={10}>
-                <Row
-                  type='flex'
-                  justify='space-around'
-                  align='middle'
-                  style={{ marginTop: '-1rem' }}
-                >
-                  <Col xs={24} className='docTypeTitle'>
-                    <Text strong>MANUAL</Text>
-                  </Col>
-                </Row>
-                <Row type='flex' justify='space-around' align='middle' className='downloadButton'>
-                  <Col xs={24} className='downloadTitle'>
-                    <Text strong>DESCARGA MANUAL</Text>
-                  </Col>
-                  <Col xs={24} className='downloadIcon'>
-                    <Icon type='cloud-download' theme='outlined' />
-                  </Col>
-                </Row>
+              <Col xs={24} style={{ marginTop: '2rem', marginBottom: '-1rem' }}>
+                <Title level={4}>MANUAL</Title>
               </Col>
-              <Col xs={14}>
+              <Col xs={24}>
                 <img
-                  style={{ maxWidth: '80%', marginLeft: '3rem' }}
+                  style={{ maxWidth: '90%' }}
                   src='/resources/img/manual.png'
                   alt='Portada Manual Firan'
                 />
+              </Col>
+              <Col xs={24}>
+                <Row type='flex' justify='space-around' align='middle' className='downloadButton'>
+                  <Col xs={8} className='downloadIcon'>
+                    <Icon type='cloud-download' theme='outlined' />
+                  </Col>
+                  <Col xs={16} className='buttonLabel'>
+                    <Text strong>DESCARGA MANUAL</Text>
+                  </Col>
+                </Row>
               </Col>
             </Row>
           </Panel>
