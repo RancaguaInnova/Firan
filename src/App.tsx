@@ -1,20 +1,18 @@
-import React, { Suspense } from 'react'
+import React, { lazy, Suspense } from 'react'
 import { Router, RouteComponentProps } from '@reach/router'
-import Header from 'components/Header'
 import Loading from 'components/Loading'
 import * as Sentry from '@sentry/browser'
-import Menu from 'components/Menu'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
 import 'antd/dist/antd.css'
 
-const Home = React.lazy(() => import('pages/Home'))
-const Register = React.lazy(() => import('pages/Register'))
-const News = React.lazy(() => import('pages/News'))
-const Contact = React.lazy(() => import('pages/Contact'))
-const Information = React.lazy(() => import('pages/Information'))
-const Expositor = React.lazy(() => import('pages/Expositor'))
-const Activity = React.lazy(() => import('pages/Activity'))
+const Home = lazy(() => import('pages/Home'))
+const Register = lazy(() => import('pages/Register'))
+const News = lazy(() => import('pages/News'))
+const Contact = lazy(() => import('pages/Contact'))
+const Information = lazy(() => import('pages/Information'))
+const Expositor = lazy(() => import('pages/Expositor'))
+const Activity = lazy(() => import('pages/Activity'))
 
 if (process.env.NODE_ENV === 'production') {
   Sentry.init({
