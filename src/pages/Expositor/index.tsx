@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { lazy, useState } from 'react'
 import './styles.sass'
 import {
   PeopleRounded,
@@ -6,14 +6,17 @@ import {
   StoreRounded,
   CloudDownloadRounded
 } from '@material-ui/icons'
-import { Collapse, Icon, Modal } from 'antd'
+import { Col, Collapse, Divider, Icon, Modal, Row, Typography } from 'antd'
+import Expositores from './Lista'
 import Stands from './stands'
-import Home from '../Home/'
-import Header from '../../components/Header'
+
+const { Text, Title } = Typography
+
+const Header = lazy(() => import('../../components/Header'))
 
 const Expositor: React.FC = () => {
   const { Panel } = Collapse
-  const [visible, setVisible] = React.useState(false)
+  const [visible, setVisible] = useState(false)
 
   const customExpandIcon = (props: any) => {
     if (props.isActive) {
@@ -64,28 +67,29 @@ const Expositor: React.FC = () => {
           accordion
         >
           <Panel
-            header='Por qué Exponer?'
+            showArrow
+            header='¿Por qué Exponer?'
             key='1'
             extra={<PeopleRounded className='iconExtra' />}
             className='panel1'
           >
-            <h4 className='TitleExpositor'>Por qué Exponer?</h4>
-            <div className='ContentExpositor'>
+            <div className='ExpositorCenter'>
               Es la instancia en donde convergen las distintas áreas economicas y sociales de la
               región, en un espacio multisectorial potenciando sus capacidades de desarrollo y
               poroductos de alto nivel, oportunidad de presentar las novedades al mercado nacional e
               internaciona. Esta versión apuesta por la innovación, la virtud a la reutilización y a
               pontenciar las capacidades de la comunidad.
             </div>
-            <div className='ExpositorCenter'>
+            <div className='ExpositorCenter' style={{ textDecoration: 'underline' }}>
               "Generar nuevas oportunidades de negocios y vínculos comerciales"
             </div>
             <img
               src='/resources/img/infografia.jpg'
               width='50%'
               alt='Infografia firan 2019'
+              style={{ margin: '1rem 0' }}
               onClick={showModal}
-            ></img>
+            />
             <Modal
               title='Estudio de Impacto Firan 2019'
               visible={visible}
@@ -102,17 +106,18 @@ const Expositor: React.FC = () => {
             </Modal>
           </Panel>
           <Panel
-            showArrow={true}
-            header='Quienes exponen?'
+            showArrow
+            header='¿Quienes exponen?'
             key='2'
             extra={<AttachMoneyRounded className='iconExtra' />}
             className='panel2'
           >
-            <h4 className='TitleExpositor'>Quienes exponen?</h4>
-            <div className='ContentExpositor'></div>
+            <div className='ContentExpositor'>
+              <Expositores />
+            </div>
           </Panel>
           <Panel
-            showArrow={true}
+            showArrow
             header='Valores Stands'
             key='3'
             extra={<StoreRounded className='iconExtra' />}
@@ -121,24 +126,79 @@ const Expositor: React.FC = () => {
             <Stands></Stands>
           </Panel>
           <Panel
-            showArrow={true}
+            showArrow
             header='Plano Ferial'
             key='4'
             extra={<CloudDownloadRounded className='iconExtra' />}
             className='panel4'
           >
-            <h4 className='TitleExpositor'>Plano Ferial</h4>
             <div className='ContentExpositor'></div>
           </Panel>
           <Panel
-            showArrow={true}
-            header='Brochure'
+            showArrow
+            header='Documentación'
             key='5'
             extra={<CloudDownloadRounded className='iconExtra' />}
             className='panel5'
           >
-            <h4 className='TitleExpositor'>Brochure</h4>
-            <div className='ContentExpositor'></div>
+            <Row type='flex' justify='space-around' align='middle' className='paddedRow'>
+              <Col xs={14}>
+                <img
+                  style={{ maxWidth: '90%', marginLeft: '-2.5rem' }}
+                  src='/resources/img/brochure.png'
+                  alt='Portada Brochure Firan'
+                />
+              </Col>
+              <Col xs={10}>
+                <Row
+                  type='flex'
+                  justify='space-around'
+                  align='middle'
+                  style={{ marginTop: '-1rem' }}
+                >
+                  <Col xs={24} className='docTypeTitle'>
+                    <Text strong>BROCHURE</Text>
+                  </Col>
+                </Row>
+                <Row type='flex' justify='space-around' align='middle' className='downloadButton'>
+                  <Col xs={24} className='downloadTitle'>
+                    <Text strong>DESCARGA BROCHURE</Text>
+                  </Col>
+                  <Col xs={24} className='downloadIcon'>
+                    <Icon type='cloud-download' theme='outlined' />
+                  </Col>
+                </Row>
+              </Col>
+            </Row>
+            <Row type='flex' justify='space-around' align='middle' className='paddedRow'>
+              <Col xs={10}>
+                <Row
+                  type='flex'
+                  justify='space-around'
+                  align='middle'
+                  style={{ marginTop: '-1rem' }}
+                >
+                  <Col xs={24} className='docTypeTitle'>
+                    <Text strong>MANUAL</Text>
+                  </Col>
+                </Row>
+                <Row type='flex' justify='space-around' align='middle' className='downloadButton'>
+                  <Col xs={24} className='downloadTitle'>
+                    <Text strong>DESCARGA MANUAL</Text>
+                  </Col>
+                  <Col xs={24} className='downloadIcon'>
+                    <Icon type='cloud-download' theme='outlined' />
+                  </Col>
+                </Row>
+              </Col>
+              <Col xs={14}>
+                <img
+                  style={{ maxWidth: '80%', marginLeft: '3rem' }}
+                  src='/resources/img/manual.png'
+                  alt='Portada Manual Firan'
+                />
+              </Col>
+            </Row>
           </Panel>
         </Collapse>
       </div>

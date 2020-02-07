@@ -17,6 +17,7 @@
     "bootstrap": "^4.4.1",
     "evergreen-ui": "^4.22.0",
     "js-file-download": "^0.4.9",
+    "mobile-device-detect": "^0.3.3",
     "node-sass": "^4.13.1",
     "office-ui-fabric-react": "^7.85.0",
     "primeicons": "^2.0.0",
