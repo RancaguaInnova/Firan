@@ -8,7 +8,7 @@ import {
 } from '@material-ui/icons'
 import { Col, Collapse, Icon, Modal, Row } from 'antd'
 import Expositores from './Lista'
-import Stands from './stands'
+import Stands from './Stands'
 import Documents from './Documents'
 
 const Header = lazy(() => import('../../components/Header'))
@@ -114,7 +114,7 @@ const Expositor: React.FC = () => {
             extra={<StoreRounded className='iconExtra' />}
             className='panel3'
           >
-            <Stands></Stands>
+            <Stands />
           </Panel>
           <Panel
             showArrow
