@@ -6,11 +6,10 @@ import {
   StoreRounded,
   CloudDownloadRounded
 } from '@material-ui/icons'
-import { Col, Collapse, Icon, Modal, Row, Typography } from 'antd'
+import { Col, Collapse, Icon, Modal, Row } from 'antd'
 import Expositores from './Lista'
 import Stands from './Stands'
-
-const { Text, Title } = Typography
+import Documents from './Documents'
 
 const Header = lazy(() => import('../../components/Header'))
 
@@ -148,50 +147,7 @@ const Expositor: React.FC = () => {
             extra={<CloudDownloadRounded className='iconExtra' />}
             className='panel5'
           >
-            <Row type='flex' justify='space-around' align='middle' className='paddedRow'>
-              <Col xs={24} className='docTypeTitle'>
-                <Title level={4}>BROCHURE</Title>
-              </Col>
-              <Col xs={24}>
-                <img
-                  style={{ maxWidth: '100%' }}
-                  src='/resources/img/brochure.png'
-                  alt='Portada Brochure Firan'
-                />
-              </Col>
-              <Col xs={24} style={{ marginTop: '1rem' }}>
-                <Row type='flex' justify='space-around' align='middle' className='downloadButton'>
-                  <Col xs={8} className='downloadIcon'>
-                    <Icon type='cloud-download' theme='outlined' />
-                  </Col>
-                  <Col xs={16} className='buttonLabel'>
-                    <Text strong>DESCARGA BROCHURE</Text>
-                  </Col>
-                </Row>
-              </Col>
-            </Row>
-            <Row type='flex' justify='space-around' align='middle' className='paddedRow'>
-              <Col xs={24} style={{ marginTop: '2rem', marginBottom: '-1rem' }}>
-                <Title level={4}>MANUAL</Title>
-              </Col>
-              <Col xs={24}>
-                <img
-                  style={{ maxWidth: '90%' }}
-                  src='/resources/img/manual.png'
-                  alt='Portada Manual Firan'
-                />
-              </Col>
-              <Col xs={24}>
-                <Row type='flex' justify='space-around' align='middle' className='downloadButton'>
-                  <Col xs={8} className='downloadIcon'>
-                    <Icon type='cloud-download' theme='outlined' />
-                  </Col>
-                  <Col xs={16} className='buttonLabel'>
-                    <Text strong>DESCARGA MANUAL</Text>
-                  </Col>
-                </Row>
-              </Col>
-            </Row>
+            <Documents />
           </Panel>
         </Collapse>
       </div>

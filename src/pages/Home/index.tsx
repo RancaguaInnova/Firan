@@ -18,7 +18,7 @@ const Home: React.FC = () => {
             <span className='label'>EXPOSITORES</span>
             <span className='miniLabel'>AQUÍ</span>
           </div>
-          <div className='animatedBackCircle' />
+          {/* <div className='animatedBackCircle' /> */}
         </Link>
         <Divider className='divider' />
       </Row>
