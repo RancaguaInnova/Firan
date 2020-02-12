@@ -55,102 +55,105 @@ const Expositor: React.FC = () => {
   }
 
   return (
-    <div>
-      <Header />
-
-      <div className='container'>
-        <Collapse
-          defaultActiveKey={['1']}
-          expandIconPosition='right'
-          expandIcon={(props: any) => customExpandIcon(props)}
-          accordion
-        >
-          <Panel
-            showArrow
-            header='¿Por qué Exponer?'
-            key='1'
-            extra={<PeopleRounded className='iconExtra' />}
-            className='panel1'
-          >
-            <div className='ExpositorCenter'>
-              Es la instancia en donde convergen las distintas áreas economicas y sociales de la
-              región, en un espacio multisectorial potenciando sus capacidades de desarrollo y
-              poroductos de alto nivel, oportunidad de presentar las novedades al mercado nacional e
-              internaciona. Esta versión apuesta por la innovación, la virtud a la reutilización y a
-              pontenciar las capacidades de la comunidad.
-            </div>
-            <div className='ExpositorCenter' style={{ textDecoration: 'underline' }}>
-              "Generar nuevas oportunidades de negocios y vínculos comerciales"
-            </div>
-            <img
-              src='/resources/img/infografia.jpg'
-              width='50%'
-              alt='Infografia firan 2019'
-              style={{ margin: '1rem 0', boxShadow: '2px 4px 3px gray' }}
-              onClick={() =>
-                setModal({
-                  open: true,
-                  asset: 'infografia',
-                  title: 'Estudio de Impacto Firan 2019'
-                })
-              }
-            />
-          </Panel>
-          <Panel
-            showArrow
-            header='¿Quienes exponen?'
-            key='2'
-            extra={<AttachMoneyRounded className='iconExtra' />}
-            className='panel2'
-          >
-            <div className='ContentExpositor'>
-              <Expositores />
-            </div>
-          </Panel>
-          <Panel
-            showArrow
-            header='Valores Stands'
-            key='3'
-            extra={<StoreRounded className='iconExtra' />}
-            className='panel3'
-          >
-            <Stands />
-          </Panel>
-          <Panel
-            showArrow
-            header='Plano Ferial'
-            key='4'
-            extra={<CloudDownloadRounded className='iconExtra' />}
-            className='panel4'
-          >
-            <Row>
-              <Col xs={24}>
+    <Row gutter={[16, 16]}>
+      <Col xs={24} md={{ span: 18, offset: 3 }}>
+        <Header />
+        <Row gutter={[64, 16]} style={{ marginTop: '2rem' }}>
+          <Col xs={24} md={{ span: 18, offset: 3 }}>
+            <Collapse
+              defaultActiveKey={['1']}
+              expandIconPosition='right'
+              expandIcon={(props: any) => customExpandIcon(props)}
+              accordion
+            >
+              <Panel
+                showArrow
+                header='¿Por qué Exponer?'
+                key='1'
+                extra={<PeopleRounded className='iconExtra' />}
+                className='panel1'
+              >
+                <div className='ExpositorCenter'>
+                  Es la instancia en donde convergen las distintas áreas economicas y sociales de la
+                  región, en un espacio multisectorial potenciando sus capacidades de desarrollo y
+                  poroductos de alto nivel, oportunidad de presentar las novedades al mercado
+                  nacional e internaciona. Esta versión apuesta por la innovación, la virtud a la
+                  reutilización y a pontenciar las capacidades de la comunidad.
+                </div>
+                <div className='ExpositorCenter' style={{ textDecoration: 'underline' }}>
+                  "Generar nuevas oportunidades de negocios y vínculos comerciales"
+                </div>
                 <img
-                  src='/resources/img/plano-firan.jpg'
-                  alt='Plano firan 2020'
-                  style={{ width: '100%', margin: '1rem 0', boxShadow: '2px 4px 3px gray' }}
+                  src='/resources/img/infografia.jpg'
+                  width='50%'
+                  alt='Infografia firan 2019'
+                  style={{ margin: '1rem 0', boxShadow: '2px 4px 3px gray' }}
                   onClick={() =>
                     setModal({
                       open: true,
-                      asset: 'plano-firan',
-                      title: 'Plano Firan 2020'
+                      asset: 'infografia',
+                      title: 'Estudio de Impacto Firan 2019'
                     })
                   }
                 />
-              </Col>
-            </Row>
-          </Panel>
-          <Panel
-            showArrow
-            header='Documentación'
-            key='5'
-            extra={<CloudDownloadRounded className='iconExtra' />}
-            className='panel5'
-          >
-            <Documents />
-          </Panel>
-        </Collapse>
-      </div>
+              </Panel>
+              <Panel
+                showArrow
+                header='¿Quienes exponen?'
+                key='2'
+                extra={<AttachMoneyRounded className='iconExtra' />}
+                className='panel2'
+              >
+                <div className='ContentExpositor'>
+                  <Expositores />
+                </div>
+              </Panel>
+              <Panel
+                showArrow
+                header='Valores Stands'
+                key='3'
+                extra={<StoreRounded className='iconExtra' />}
+                className='panel3'
+              >
+                <Stands />
+              </Panel>
+              <Panel
+                showArrow
+                header='Plano Ferial'
+                key='4'
+                extra={<CloudDownloadRounded className='iconExtra' />}
+                className='panel4'
+              >
+                <Row>
+                  <Col xs={24}>
+                    <img
+                      src='/resources/img/plano-firan.jpg'
+                      alt='Plano firan 2020'
+                      style={{ width: '100%', margin: '1rem 0', boxShadow: '2px 4px 3px gray' }}
+                      onClick={() =>
+                        setModal({
+                          open: true,
+                          asset: 'plano-firan',
+                          title: 'Plano Firan 2020'
+                        })
+                      }
+                    />
+                  </Col>
+                </Row>
+              </Panel>
+              <Panel
+                showArrow
+                header='Documentación'
+                key='5'
+                extra={<CloudDownloadRounded className='iconExtra' />}
+                className='panel5'
+              >
+                <Documents />
+              </Panel>
+            </Collapse>
+          </Col>
+        </Row>
+      </Col>
       <Modal
         title={modal.title}
         visible={modal.open}
@@ -161,7 +164,7 @@ const Expositor: React.FC = () => {
       >
         <img src={`/resources/img/${modal.asset}.jpg`} alt={`${modal.asset}`} width='100%'></img>
       </Modal>
-    </div>
+    </Row>
   )
 }
 
