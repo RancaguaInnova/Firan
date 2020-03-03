@@ -9,7 +9,7 @@ import 'antd/dist/antd.css'
 const Home = lazy(() => import('pages/Home'))
 const Register = lazy(() => import('pages/Register'))
 const News = lazy(() => import('pages/News'))
-const Contact = lazy(() => import('pages/Contact'))
+//const Contact = lazy(() => import('pages/Contact'))
 const Information = lazy(() => import('pages/Information'))
 const Expositor = lazy(() => import('pages/Expositor'))
 const Activity = lazy(() => import('pages/Activity'))
@@ -33,7 +33,7 @@ const App: React.FC = () => {
           <RouterPage path='/expositores' pageComponent={<Expositor />} />
           <RouterPage path='/actividades' pageComponent={<Activity />} />
           <RouterPage path='/noticias' pageComponent={<News />} />
-          <RouterPage path='/contacto' pageComponent={<Contact />} />
+          {/* <RouterPage path='/contacto' pageComponent={<Contact />} /> */}
         </Router>
       </Suspense>
       {/*       <Menu />

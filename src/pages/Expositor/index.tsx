@@ -1,43 +1,70 @@
-import React, { lazy, useState } from 'react'
-import './styles.sass'
-import {
-  PeopleRounded,
-  AttachMoneyRounded,
-  StoreRounded,
-  CloudDownloadRounded
-} from '@material-ui/icons'
-import { Col, Collapse, Icon, Modal, Row } from 'antd'
+import React, { lazy, useState, useEffect } from 'react'
+
+import { Col, Modal, Row } from 'antd'
 import Expositores from './Lista'
 import Stands from './Stands'
 import Documents from './Documents'
+import PorqueExponer from './PorqueExponer'
 
+import 'animate.css'
+import AOS from 'aos'
+import 'aos/dist/aos.css' // You can also use <link> for styles
+import './styles.sass'
+
+AOS.init({ delay: 6 })
 const Header = lazy(() => import('../../components/Header'))
+const Footer = lazy(() => import('../../components/Footer'))
 
 const Expositor: React.FC = () => {
-  const { Panel } = Collapse
+  useEffect(() => {
+    AOS.init({ delay: 6 })
+  }, [])
+
   const [modal, setModal] = useState({
     open: false,
     asset: '',
     title: ''
   })
 
-  const customExpandIcon = (props: any) => {
-    if (props.isActive) {
-      return <Icon type='minus' />
-    } else {
-      return <Icon type='plus' />
-    }
-  }
+  const [modal1, setModal1] = useState({
+    open: false,
+    asset: '',
+    title: ''
+  })
+
+  const [modal2, setModal2] = useState({
+    open: false,
+    asset: '',
+    title: ''
+  })
+
+  const [modal3, setModal3] = useState({
+    open: false,
+    asset: 'plano-firan',
+    title: ''
+  })
+
+  const [modal4, setModal4] = useState({
+    open: false,
+    asset: '',
+    title: ''
+  })
+
+  const [modal5, setModal5] = useState({
+    open: false,
+    asset: '',
+    title: ''
+  })
 
   const handleClose = () => {
     setModal({ open: false, asset: '', title: '' })
   }
 
-  const handleDownload = () => {
+  const handleDownload = (asset: string) => {
     var tempLink = document.createElement('a')
     tempLink.style.display = 'none'
-    tempLink.href = `/resources/img/${modal.asset}.jpg`
-    tempLink.setAttribute('download', `${modal.asset}.jpg`)
+    tempLink.href = `/resources/img/${asset}.jpg`
+    tempLink.setAttribute('download', `${asset}.jpg`)
 
     if (typeof tempLink.download === 'undefined') {
       tempLink.setAttribute('target', '_blank')
@@ -55,116 +82,206 @@ const Expositor: React.FC = () => {
   }
 
   return (
-    <Row gutter={[16, 16]}>
-      <Col xs={24} md={{ span: 18, offset: 3 }}>
-        <Header />
-        <Row gutter={[64, 16]} style={{ marginTop: '2rem' }}>
-          <Col xs={24} md={{ span: 18, offset: 3 }}>
-            <Collapse
-              defaultActiveKey={['1']}
-              expandIconPosition='right'
-              expandIcon={(props: any) => customExpandIcon(props)}
-              accordion
-            >
-              <Panel
-                showArrow
-                header='¿Por qué Exponer?'
-                key='1'
-                extra={<PeopleRounded className='iconExtra' />}
-                className='panel1'
-              >
-                <div className='ExpositorCenter'>
-                  Es la instancia en donde convergen las distintas áreas economicas y sociales de la
-                  región, en un espacio multisectorial potenciando sus capacidades de desarrollo y
-                  poroductos de alto nivel, oportunidad de presentar las novedades al mercado
-                  nacional e internaciona. Esta versión apuesta por la innovación, la virtud a la
-                  reutilización y a pontenciar las capacidades de la comunidad.
-                </div>
-                <div className='ExpositorCenter' style={{ textDecoration: 'underline' }}>
-                  "Generar nuevas oportunidades de negocios y vínculos comerciales"
-                </div>
+    <div>
+      <div>
+        <Header></Header>
+      </div>
+      <div className='boxes'>
+        <div
+          className='boxExpositor animated  fadeInDown delay-0s'
+          onClick={() => setModal({ open: true, asset: '', title: '' })}
+        >
+          <img src='/resources/img/por que_.png' alt='por que' className='boxImage'></img>
+          <div className='textBoxExpositor'>Por qué Exponer ?</div>
+        </div>
+
+        <Modal
+          title='¿Por qué Exponer?'
+          centered
+          visible={modal.open}
+          onOk={() => setModal({ open: false, asset: '', title: '' })}
+          okText='Cerrar'
+          onCancel={() => setModal({ open: false, asset: '', title: '' })}
+          cancelButtonProps={{ style: { display: 'none' } }}
+        >
+          <PorqueExponer></PorqueExponer>
+        </Modal>
+
+        <div
+          className='boxExpositor animated  fadeInDown delay-1s'
+          onClick={() => setModal1({ open: true, asset: '', title: '' })}
+        >
+          <img src='/resources/img/exponen.png' alt='quienes exponen' className='boxImage'></img>
+          <div className='textBoxExpositor'>Quienes exponen?</div>
+        </div>
+
+        <Modal
+          title='¿Quienes exponen?'
+          centered
+          visible={modal1.open}
+          okText='Cerrar'
+          onOk={() => setModal1({ open: false, asset: '', title: '' })}
+          onCancel={() => setModal1({ open: false, asset: '', title: '' })}
+          cancelButtonProps={{ style: { display: 'none' } }}
+        >
+          <div className='ExpositorCenter'>
+            <Expositores />
+          </div>
+        </Modal>
+
+        <div
+          className='boxExpositor animated  fadeInDown delay-2s'
+          onClick={() => setModal2({ open: true, asset: '', title: '' })}
+        >
+          <img src='/resources/img/stand.png' alt='Valores Stands' className='boxImage'></img>
+          <div className='textBoxExpositor'>Valores Stands</div>
+        </div>
+        <Modal
+          title='Valores Stands'
+          centered
+          visible={modal2.open}
+          okText='Cerrar'
+          onOk={() => setModal2({ open: false, asset: '', title: '' })}
+          onCancel={() => setModal2({ open: false, asset: '', title: '' })}
+          cancelButtonProps={{ style: { display: 'none' } }}
+        >
+          <div className='ExpositorCenter'>
+            <Stands />
+          </div>
+        </Modal>
+
+        <div
+          className='boxExpositor  animated  fadeInDown delay-3s'
+          onClick={() => setModal3({ open: true, asset: '', title: '' })}
+        >
+          <img src='/resources/img/plano.png' alt='Plano Ferial' className='boxImage'></img>
+          <div className='textBoxExpositor'>Plano Ferial</div>
+        </div>
+        <Modal
+          title='Plano Ferial'
+          centered
+          visible={modal3.open}
+          onCancel={() => setModal3({ open: false, asset: '', title: '' })}
+          onOk={() => handleDownload('plano-firan')}
+          okText='Descargar Plano Firan'
+          cancelText='Cerrar'
+        >
+          <div className='ExpositorCenter'>
+            <Row>
+              <Col xs={24}>
                 <img
-                  src='/resources/img/infografia.jpg'
-                  width='50%'
-                  alt='Infografia firan 2019'
-                  style={{ margin: '1rem 0', boxShadow: '2px 4px 3px gray' }}
-                  onClick={() =>
-                    setModal({
-                      open: true,
-                      asset: 'infografia',
-                      title: 'Estudio de Impacto Firan 2019'
-                    })
-                  }
+                  src='/resources/img/plano-firan.jpg'
+                  alt='Plano firan 2020'
+                  style={{ width: '100%', margin: '1rem 0', boxShadow: '2px 4px 3px gray' }}
                 />
-              </Panel>
-              <Panel
-                showArrow
-                header='¿Quienes exponen?'
-                key='2'
-                extra={<AttachMoneyRounded className='iconExtra' />}
-                className='panel2'
-              >
-                <div className='ContentExpositor'>
-                  <Expositores />
-                </div>
-              </Panel>
-              <Panel
-                showArrow
-                header='Valores Stands'
-                key='3'
-                extra={<StoreRounded className='iconExtra' />}
-                className='panel3'
-              >
-                <Stands />
-              </Panel>
-              <Panel
-                showArrow
-                header='Plano Ferial'
-                key='4'
-                extra={<CloudDownloadRounded className='iconExtra' />}
-                className='panel4'
-              >
-                <Row>
-                  <Col xs={24}>
-                    <img
-                      src='/resources/img/plano-firan.jpg'
-                      alt='Plano firan 2020'
-                      style={{ width: '100%', margin: '1rem 0', boxShadow: '2px 4px 3px gray' }}
-                      onClick={() =>
-                        setModal({
-                          open: true,
-                          asset: 'plano-firan',
-                          title: 'Plano Firan 2020'
-                        })
-                      }
-                    />
-                  </Col>
-                </Row>
-              </Panel>
-              <Panel
-                showArrow
-                header='Documentación'
-                key='5'
-                extra={<CloudDownloadRounded className='iconExtra' />}
-                className='panel5'
-              >
-                <Documents />
-              </Panel>
-            </Collapse>
-          </Col>
-        </Row>
-      </Col>
-      <Modal
-        title={modal.title}
-        visible={modal.open}
-        onOk={handleDownload}
-        onCancel={handleClose}
-        okText='Descargar'
-        cancelText='Cerrar'
-      >
-        <img src={`/resources/img/${modal.asset}.jpg`} alt={`${modal.asset}`} width='100%'></img>
-      </Modal>
-    </Row>
+              </Col>
+            </Row>
+          </div>
+        </Modal>
+
+        <div
+          className='boxExpositor  animated  fadeInDown delay-4s'
+          onClick={() => setModal4({ open: true, asset: '', title: '' })}
+        >
+          <img src='/resources/img/descarga.png' alt='Documentos' className='boxImage'></img>
+          <div className='textBoxExpositor'>Documentos</div>
+        </div>
+        <Modal
+          title='Documentos'
+          centered
+          visible={modal4.open}
+          onOk={() => setModal4({ open: false, asset: '', title: '' })}
+          onCancel={() => setModal4({ open: false, asset: '', title: '' })}
+          cancelButtonProps={{ style: { display: 'none' } }}
+          okText='Cerrar'
+        >
+          <div className='ExpositorCenter'>
+            <Documents />
+          </div>
+        </Modal>
+        <div
+          className='boxExpositor  animated  fadeInDown delay-5s '
+          onClick={() => setModal5({ open: true, asset: '', title: '' })}
+        >
+          <img src='/resources/img/contáctanos.png' alt='Contáctanos' className='boxImage'></img>
+          <div className='textBoxExpositor'>Contáctanos</div>
+        </div>
+        <Modal
+          title='Contáctanos'
+          centered
+          visible={modal5.open}
+          onOk={() => setModal5({ open: false, asset: '', title: '' })}
+          onCancel={() => setModal5({ open: false, asset: '', title: '' })}
+          cancelButtonProps={{ style: { display: 'none' } }}
+          okText='Cerrar'
+        >
+          <div className='ExpositorCenter'>
+            <Row gutter={[16, 16]} className='flexRow'>
+              <Col span={24} className='contactoImage'>
+                <img
+                  src={`/resources/img/contacto FIRAN 2020-02.png`}
+                  alt=''
+                  style={{ width: '33%' }}
+                ></img>
+              </Col>
+            </Row>
+            <Row gutter={[16, 16]} className='flexRow'>
+              <Col span={4}>
+                <img
+                  src={`/resources/img/iconos footer 2-06.png`}
+                  alt=''
+                  style={{ width: '80%' }}
+                ></img>
+              </Col>
+
+              <Col span={20} className='contactoText'>
+                <a href='mailto:feria@smart.rancagua.cl' target='_top'>
+                  feria@smart.rancagua.cl
+                </a>
+              </Col>
+            </Row>
+
+            <Row gutter={[16, 16]} className='flexRow'>
+              <Col span={4}>
+                <img
+                  src={`/resources/img/iconos footer 2-07.png`}
+                  alt=''
+                  style={{ width: '80%' }}
+                ></img>
+              </Col>
+
+              <Col span={20} className='contactoText'>
+                <a href='tel:+56722605385' target='_top'>
+                  (+56) 72 2 605 385
+                </a>
+              </Col>
+            </Row>
+
+            {/* <Row gutter={[16, 16]} className='flexRow'>
+              <Col span={24} className='titleContact'>
+                Productora Ejecutiva
+              </Col>
+            </Row>
+            <Row gutter={[16, 16]} className='flexRow'>
+              <Col span={24} className='contactoTextCenter'>
+                <a href='mailto:sara@smart.rancagua.cl' target='_top'>
+                  Sara Ramirez Cruz
+                </a>
+              </Col>
+            </Row>
+            <Row gutter={[16, 16]} className='flexRow'>
+              <Col span={24} className='contactoTextCenter'>
+                <a href='mailto:sara@smart.rancagua.cl' target='_top'>
+                  sara@smart.rancagua.cl
+                </a>
+              </Col>
+            </Row> */}
+          </div>
+        </Modal>
+      </div>
+
+      <Footer></Footer>
+    </div>
   )
 }
 

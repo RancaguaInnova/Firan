@@ -1,6 +1,16 @@
+@font-face {
+  font-family: 'Futura';
+  src: url('/resources/fonts/@font-face/e8c6a63541de0a4211a9358cbe74690f.eot');
+  src: url('/resources/fonts/@font-face/e8c6a63541de0a4211a9358cbe74690f.eot?#iefix') format('embedded-opentype'),
+    url('/resources/fonts/@font-face/e8c6a63541de0a4211a9358cbe74690f.woff2') format('woff2'),
+    url('/resources/fonts/@font-face/e8c6a63541de0a4211a9358cbe74690f.woff') format('woff'),
+    url('/resources/fonts/@font-face/e8c6a63541de0a4211a9358cbe74690f.ttf') format('truetype'),
+    url('/resources/fonts/@font-face/e8c6a63541de0a4211a9358cbe74690f.svg#Futura') format('svg');
+}
+
 .App {
   text-align: center;
-  font-family: proxima-nova, sans-serif;
+  font-family: Futura !important;
   font-style: normal;
   font-weight: 400;
 }
